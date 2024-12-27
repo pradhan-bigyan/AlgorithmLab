@@ -1,6 +1,6 @@
 import time
-import random
 import sys
+import random
 from mergesort import merge_sort
 from quicksort import quick_sort
 
@@ -21,12 +21,14 @@ if __name__ == "__main__":
 
     print("Benchmarking Merge Sort:")
     for size in sizes:
-        arr = list(range(size, 0, -1))
+        arr = list(range(1, size + 1))
+        random.shuffle(arr)
         time_taken = benchmark_sort(merge_sort, arr[:], 0, len(arr) - 1)
         print(f"Merge sort on array of size {size}: {time_taken:.6f} seconds")
 
     print("\nBenchmarking Quick Sort:")
     for size in sizes:
-        arr = list(range(size, 0, -1))
+        arr = list(range(1, size + 1))
+        random.shuffle(arr)
         time_taken = benchmark_sort(quick_sort, arr[:], 0, len(arr) - 1)
         print(f"Quick sort on array of size {size}: {time_taken:.6f} seconds")
